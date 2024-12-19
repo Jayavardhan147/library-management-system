@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="/book_search">Search Book</a></li>
+                <li><a href="/books_issued">Books Issued</a></li>
+                <li><a href="/change_password">Change Password</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flash-messages">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            
+            {% block content %}
+            <h1>Welcome to the Student Dashboard</h1>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="navbar">
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+    
+</body>
+</html>

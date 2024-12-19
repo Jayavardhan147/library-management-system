@@ -1,0 +1,35 @@
+{% extends 'librarian_dashboard.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Issue Book to Student</h2>
+        <form action="/issue_book" method="POST">
+            <label for="book_id">Book ID:</label>
+            <input type="number" name="book_id" placeholder="Enter Book ID" required>
+
+            <label for="roll_number">Student Roll Number:</label>
+            <input type="text" name="roll_number" placeholder="Enter Roll Number" required>
+
+            <label for="course">Course:</label>
+            <select name="course" required>
+                <option value="BTech">BTech</option>
+                <option value="MTech">MTech</option>
+                <option value="BBA">BBA</option>
+                <option value="BCA">BCA</option>
+                <option value="MBA">MBA</option>
+                <option value="Diploma">Diploma</option>
+            </select>
+
+            <label for="department">Department:</label>
+            <select name="department" required>
+                <option value="CSE">CSE</option>
+                <option value="Civil">Civil</option>
+                <option value="Mech">Mechanical</option>
+                <option value="EEE">EEE</option>
+                <option value="ECE">ECE</option>
+            </select>
+
+            <button type="submit">Issue Book</button>
+        </form>
+    </div>
+{% endblock %}

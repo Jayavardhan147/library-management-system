@@ -1,0 +1,12 @@
+{% extends 'librarian_dashboard.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Add Books via CSV</h2>
+        <form action="/add_books_csv" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload CSV File:</label>
+            <input type="file" name="file" required>
+            <button type="submit">Upload CSV</button>
+        </form>
+    </div>
+{% endblock %}

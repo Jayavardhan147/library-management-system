@@ -1,0 +1,45 @@
+{% extends 'student_dashboard.html' %}
+
+{% block content %}
+    <h2>Search for Books</h2>
+    <div class="search-container">
+        <form action="/book_search" method="POST">
+            <input type="text" name="search_query" placeholder="Search by ID, Title or ISBN" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% if books %}
+        <h3>Search Results:</h3>
+        <div class="table-container">
+            <table class="books-table">
+                <thead>
+                    <tr>
+                        <th>Book ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Genre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                        <tr>
+                            <td>{{ book.book_id }}</td>
+                            <td>{{ book.title }}</td>
+                            <td>{{ book.author }}</td>
+                            <td>{{ book.isbn }}</td>
+                            <td>{{ book.genre }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5">No books found matching your search.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <p>No results to display.</p>
+    {% endif %}
+{% endblock %}

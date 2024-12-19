@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librarian Dashboard</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="/add_book">Add Book</a></li>
+                <li><a href="/remove_book">Remove Book</a></li>
+                <li><a href="/add_books_csv">Add Books via CSV</a></li>
+                <li><a href="/register_student">Register New Student</a></li>
+                <li><a href="/issue_book">Issue Book</a></li>
+                <li><a href="/search_book">Search Book</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <ul class="flash-messages">
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+            
+            {% block content %}
+            <h1>Welcome to the Librarian Dashboard</h1>
+            {% endblock %}
+        </div>
+        <div class="dashboard">
+            <div class="card">
+                <div class="card-header">Total Books</div>
+                <div class="card-body">
+                    <h2>{{ total_books }}</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Issued Books</div>
+                <div class="card-body">
+                    <h2>{{ issued_books }}</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Available Books</div>
+                <div class="card-body">
+                    <h2>{{ available_books }}</h2>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">Books Due</div>
+                <div class="card-body">
+                    <h2>{{ due_books }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar">
+        <a href="/logout" class="logout">Logout</a>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body class="login-page">
+    <div class="home-container">
+        <h1>Welcome to the Library Management System</h1>
+        <hr>
+        <div class="container">
+            <div class="login-box librarian">
+                <div class="login-form">
+                    <h2>Librarian Login</h2>
+                    <form action="/librarian-dashboard" method="POST">
+                        <div class="input-group">
+                            <label for="librarian-username">Username</label>
+                            <input type="text" id="librarian-username" name="username" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="librarian-password">Password</label>
+                            <input type="password" id="librarian-password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="login-box student">
+                <div class="login-form">
+                    <h2>Student Login</h2>
+                    <form action="/student-login" method="POST">
+                        <div class="input-group">
+                            <label for="student-username">Username</label>
+                            <input type="text" id="student-username" name="username" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="student-password">Password</label>
+                            <input type="password" id="student-password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

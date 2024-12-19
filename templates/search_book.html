@@ -1,0 +1,43 @@
+{% extends 'librarian_dashboard.html' %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Search Books</h2>
+    <form action="/search_book" method="POST">
+        <input type="text" name="search_query" placeholder="Search by ID, Title, ISBN" required>
+        <button type="submit">Search</button>
+    </form>
+</div>
+
+{% if books %}
+    <h3>Search Results:</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>ISBN</th>
+                <th>Course</th>
+                <th>Department</th>
+                <th>Genre</th>
+                <th>Issued To</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.book_id }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.isbn }}</td>
+                    <td>{{ book.course }}</td>
+                    <td>{{ book.department }}</td>
+                    <td>{{ book.genre }}</td>
+                    <td>{{ book.issued_to if book.issued_to else 'Available' }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+{% endblock %}
