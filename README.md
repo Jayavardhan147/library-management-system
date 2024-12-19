@@ -1,26 +1,5 @@
 Firstly install all the requirments bye this command "pip install -r requirements.txt" 
 
-project/
-├── app.py
-├── templates/
-    ├── add_book.html
-    ├── add_books_csv.html
-    ├── book_search.html
-    ├── book_issued.html
-    ├── change_password.html
-    ├── issue_book.html
-    ├── librarian_dashboard.html
-    ├── login.html
-    ├── register_student.html
-    ├── remove_book.html
-    ├── search_book.html 
-    ├── student_dashboard.html
-├──static/ 
-    ├── styles.css
-
-Project Structure
-The project is organized into the following directories and files:
-
 ->In app.py, the SQLAlchemy library is used to define models and handle database interactions. The database is initialized with the db.create_all() method to create the necessary tables.
 ->librarians can login using their respective credentials. And Students login using credentials given by librarians and password can be changed by students later.
 ->Authentication is handled using Flask-Login for session management and JWT for API token-based security.
