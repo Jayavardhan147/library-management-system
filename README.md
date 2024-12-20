@@ -31,13 +31,12 @@ Librarians can add new students by collecting details like roll number, email, m
 
 
 --)Student Functionalities
-1.Search Books:
+1.Search Books:-
 search_book.html
 Students can search books by title, author, ISBN, or course (e.g., B.Tech, M.Tech, BCA).
-View Issued Books:
-
-2.book_issued.html
+2.View Issued Books:-
+book_issued.html
 Students can see the list of books they have borrowed, with issue and return deadlines.
 
-3.Borrow Books:
+3.Borrow Books:-
 Students can borrow up to 3 books at a time. The librarian tracks availability.
